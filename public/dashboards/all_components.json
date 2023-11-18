@@ -4136,7 +4136,7 @@
 				"https://data.taipei/dataset/detail?id=dc7e246a-a88e-42f8-8cd6-9739209af774"
 			],
 			"tags": [],
-			"contributors": ["tuic"]
+			"contributors": ["chunghwa"]
 		},
 		"202": {
 			"id": 202,
@@ -4159,7 +4159,7 @@
 			"use_case": "瞭解緊急救護服務案件的統計資訊，有助於優化救護服務的配置及應急措施。",
 			"links": null,
 			"tags": [],
-			"contributors": ["tuic"]
+			"contributors": ["chunghwa"]
 		}
 	}
 }
