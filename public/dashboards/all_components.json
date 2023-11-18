@@ -4149,7 +4149,7 @@
 			},
 			"name": "臺北市各行政區託嬰中心數量",
 			"source": "臺北市資料大平臺",
-			"history_data": true,
+			"history_data": false,
 			"time_from": "2023-01-01T00:00:00+08:00",
 			"time_to": "2023-12-31T14:50:55+08:00",
 			"update_freq": 1,
