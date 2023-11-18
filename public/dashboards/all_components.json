@@ -4271,6 +4271,207 @@
 			"tags": [],
 			"contributors": ["chunghwa"]
 		},
+		"205": {
+			"id": 205,
+			"index": "postpartum",
+			"map_config": [
+				{
+					"index": "ProcessedPostpartumCareCenter",
+					"paint": {
+						"circle-color": [
+							"case",
+							["<=", ["get", "收費金額"], 6000],
+							"#FFC0CB",
+							["<=", ["get", "收費金額"], 7000],
+							"#FF69B4",
+							["<=", ["get", "收費金額"], 9000],
+							"#FF1493",
+							"#C2185B"
+						],
+						"circle-radius": 10
+					},
+					"property": [
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{	"key": "name",
+							"name": "機構名稱"
+						},
+						{	"key": "收費金額",
+							"name": "收費金額"
+						},
+						{
+							"key": "產後護理床開放床數",
+							"name": "產後護理床開放床數"
+						},
+						{
+							"key": "嬰兒床開放床數",
+							"name": "嬰兒床開放床數"
+						},
+						{
+							"key": "addr",
+							"name": "地址"
+						}
+					],
+					"title": "產後護理機構",
+					"type": "circle",
+					"size": null,
+					"icon": null
+				}
+			],
+			"history_data": false,
+			"chart_config": {
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"types": ["ColumnChart", "RadarChart", "DistrictChart"],
+				"color": ["#FFC0CB", "#FF69B4", "#FF1493", "#C2185B"],
+				"unit": "家",
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"name": "產後護理機構價格",
+			"source": "臺北市資料大平臺",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示台北市所有產後護理機構的點位。",
+			"long_desc": "顯示顯示台北市所有產後護理機構的點位，資料來源為臺北市資料大平臺，不定期更新。",
+			"use_case": "透過這些點位資訊，我們可以更有效地了解產後護理機構的分佈情況，並根據需求進行相應的政策調整，提供更好的產後護理服務。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae"
+			],
+			"tags": [],
+			"contributors": ["chunghwa"]
+		},
+		"206": {
+			"id": 206,
+			"index": "kindergarten",
+			"map_config": [
+				{
+					"index": "SummaryKindergarten",
+					"paint": {
+						"circle-color": [
+							"case",
+							["<=", ["get", "收費金額"], 46407],
+							"#E6DF44",
+							["<=", ["get", "收費金額"], 74190],
+							"#F4633C",
+							["<=", ["get", "收費金額"], 105000],
+							"#D63940",
+							"#9C2A4B"
+						],
+						"circle-radius": 10
+					},
+					"property": [
+						{
+							"key": "鄉鎮",
+							"name": "行政區"
+						},
+						{	"key": "類型",
+							"name": "類型"
+						},
+						{
+							"key": "name",
+							"name": "名稱"
+						},
+						{
+							"key": "核定總招收人數",
+							"name": "核定總招收人數"
+						},
+						{
+							"key": "addr",
+							"name": "地址"
+						},
+						{
+							"key": "收費金額",
+							"name": "收費金額"
+						}
+					],
+					"title": "幼兒園",
+					"type": "circle",
+					"size": null,
+					"icon": null
+				}
+			],
+			"history_data": false,
+			"chart_config": {
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				],
+				"types": ["ColumnChart", "RadarChart", "DistrictChart"],
+				"color": ["#E91E63", "#F06292", "#F48FB1", "#F8BBD0"],
+				"unit": "家",
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
+			},
+			"name": "幼兒園價格",
+			"source": "臺北市資料大平臺",
+			"time_from": "2023-07-28T00:00:00+08:00",
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示台北市所有幼兒園的點位。",
+			"long_desc": "顯示顯示台北市所有幼兒園的點位，資料來源為臺北市資料大平臺，不定期更新。",
+			"use_case": "透過這些點位資訊，我們可以更有效地了解幼兒園的分佈情況，並根據需求進行相應的政策調整，提供更好的育幼環境。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=6bb3304b-4f46-4bb0-8cd1-60c66dcd1cae"
+			],
+			"tags": [],
+			"contributors": ["chunghwa"]
+		},
 		"210": {
 			"id": 210,
 			"index": "story_chart",
