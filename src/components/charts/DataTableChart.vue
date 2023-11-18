@@ -14,14 +14,10 @@ function getDistrict() {
 
 const tableData = ref({  });
 function onSelectChange($event) {
-	console.log($event.target.value)
 	const filtered = props.series.filter(data=> {
-		console.log(data.name === $event.target.value);
 		return (data.name === $event.target.value);
 	})
-	console.log(filtered);
 	tableData.value = filtered[0];
-	console.log(tableData.value);
 }
 
 </script>

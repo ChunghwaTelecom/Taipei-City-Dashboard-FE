@@ -40,17 +40,13 @@
         ["臺北市私立寶貝托嬰中心",null,null,null,null,"甲",null],
         ["臺北市私立露西亞托嬰中心",null,null,null,null,null,"乙"],
         ["臺北市私立精英寶貝托嬰中心", null,null,null,null,null,"乙"],
-        ["臺北市私立愛寶貝明水園托嬰中心", null,null,null,null,null,"甲"],
-
-
-      ]
+        ["臺北市私立愛寶貝明水園托嬰中心", null,null,null,null,null,"甲"]      ]
     },
     {
       "name": "松山區",
       "data": [
         ["臺北市私立勁寶兒民權托嬰中心", "乙",null,null,"甲",null,null]
       ]
-
     },
     {
       "name": "士林區"
