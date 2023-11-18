@@ -101,36 +101,36 @@ class SummaryKindergarten:
     def parse_summary_kindergarten(file_path: str) -> pd.DataFrame:
         input_df: pd.DataFrame = pd.read_csv(file_path)
 
-        # map_box_geo_data_list: List[Dict[str, object]] = []
+        map_box_geo_data_list: List[Dict[str, object]] = []
 
-        # for _, row in tqdm(input_df.iterrows()):
-        #     map_box_geo_data = get_map_box_geo_data_from_address(row["幼兒園住址"])
-        #     map_box_geo_data_list.append(map_box_geo_data)
+        for _, row in tqdm(input_df.iterrows()):
+            map_box_geo_data = get_map_box_geo_data_from_address(row["幼兒園住址"])
+            map_box_geo_data_list.append(map_box_geo_data)
 
-        # center_longitudes = [
-        #     map_box_geo_data["center_longitude"]
-        #     for map_box_geo_data in map_box_geo_data_list
-        # ]
+        center_longitudes = [
+            map_box_geo_data["center_longitude"]
+            for map_box_geo_data in map_box_geo_data_list
+        ]
 
-        # center_latitudes = [
-        #     map_box_geo_data["center_latitude"]
-        #     for map_box_geo_data in map_box_geo_data_list
-        # ]
+        center_latitudes = [
+            map_box_geo_data["center_latitude"]
+            for map_box_geo_data in map_box_geo_data_list
+        ]
 
-        # locality_ids = [
-        #     map_box_geo_data["locality_id"]
-        #     for map_box_geo_data in map_box_geo_data_list
-        # ]
+        locality_ids = [
+            map_box_geo_data["locality_id"]
+            for map_box_geo_data in map_box_geo_data_list
+        ]
 
-        # locality_texts = [
-        #     map_box_geo_data["locality_text"]
-        #     for map_box_geo_data in map_box_geo_data_list
-        # ]
+        locality_texts = [
+            map_box_geo_data["locality_text"]
+            for map_box_geo_data in map_box_geo_data_list
+        ]
 
-        # input_df["center_longitude"] = center_longitudes
-        # input_df["center_latitudes"] = center_latitudes
-        # input_df["locality_ids"] = locality_ids
-        # input_df["locality_texts"] = locality_texts
+        input_df["center_longitude"] = center_longitudes
+        input_df["center_latitudes"] = center_latitudes
+        input_df["locality_ids"] = locality_ids
+        input_df["locality_texts"] = locality_texts
 
         return input_df
 
@@ -308,7 +308,7 @@ def main():
     processed_summary_kindergarten_df: pd.DataFrame = (
         SummaryKindergarten.parse_summary_kindergarten(summary_kindergarten_file_path)
     )
-    # SummaryKindergarten.output_summary_kindergarten(processed_summary_kindergarten_df)
+    SummaryKindergarten.output_summary_kindergarten(processed_summary_kindergarten_df)
 
     # # Infant Daycare Center
     # processed_infant_daycare_center_df: pd.DataFrame = (
@@ -316,8 +316,8 @@ def main():
     # )
     # InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
 
-    crawler: Crawler = Crawler()
-    crawler.crawl_the_cost(processed_summary_kindergarten_df)
+    # crawler: Crawler = Crawler()
+    # crawler.crawl_the_cost(processed_summary_kindergarten_df)
 
 
 if __name__ == "__main__":
