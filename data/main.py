@@ -49,7 +49,7 @@ class PostpartumCareCenterProcessor:
         map_box_geo_data_list: List[Dict[str, object]] = []
 
         for _, row in tqdm(input_df.iterrows()):
-            map_box_geo_data = get_map_box_geo_data_from_address(row["機構地址"])
+            map_box_geo_data = get_map_box_geo_data_from_address(row["addr"])
             map_box_geo_data_list.append(map_box_geo_data)
 
         center_longitudes = [
@@ -75,7 +75,7 @@ class PostpartumCareCenterProcessor:
         input_df["center_longitude"] = center_longitudes
         input_df["center_latitudes"] = center_latitudes
         input_df["locality_ids"] = locality_ids
-        input_df["locality_texts"] = locality_texts
+        input_df["dist"] = locality_texts
 
         return input_df
 
@@ -104,7 +104,7 @@ class SummaryKindergarten:
         map_box_geo_data_list: List[Dict[str, object]] = []
 
         for _, row in tqdm(input_df.iterrows()):
-            map_box_geo_data = get_map_box_geo_data_from_address(row["幼兒園住址"])
+            map_box_geo_data = get_map_box_geo_data_from_address(row["addr"])
             map_box_geo_data_list.append(map_box_geo_data)
 
         center_longitudes = [
@@ -130,7 +130,7 @@ class SummaryKindergarten:
         input_df["center_longitude"] = center_longitudes
         input_df["center_latitudes"] = center_latitudes
         input_df["locality_ids"] = locality_ids
-        input_df["locality_texts"] = locality_texts
+        input_df["dist"] = locality_texts
 
         return input_df
 
@@ -157,7 +157,7 @@ class InfantDaycareCenter:
         map_box_geo_data_list: List[Dict[str, object]] = []
 
         for _, row in tqdm(input_df.iterrows()):
-            map_box_geo_data = get_map_box_geo_data_from_address(row["機構地址"])
+            map_box_geo_data = get_map_box_geo_data_from_address(row["addr"])
             map_box_geo_data_list.append(map_box_geo_data)
 
         center_longitudes = [
@@ -183,7 +183,7 @@ class InfantDaycareCenter:
         input_df["center_longitude"] = center_longitudes
         input_df["center_latitudes"] = center_latitudes
         input_df["locality_ids"] = locality_ids
-        input_df["locality_texts"] = locality_texts
+        input_df["dist"] = locality_texts
 
         return input_df
 
@@ -288,33 +288,33 @@ class FuturePredictor:
 
 
 def main():
-    # postpartum_care_center_file_path = (
-    #     "data/raw_data/postpartum_care_center_with_money.csv"
-    # )
+    postpartum_care_center_file_path = (
+        "data/raw_data/postpartum_care_center_with_money.csv"
+    )
     summary_kindergarten_file_path = "data/raw_data/summary_kindergarten.csv"
-    # infant_daycare_center_file_path = "data/raw_data/infant_daycare_center.csv"
+    infant_daycare_center_file_path = "data/raw_data/infant_daycare_center.csv"
 
-    # # Postpartum Care Center
-    # processed_postpartum_care_center_df: pd.DataFrame = (
-    #     PostpartumCareCenterProcessor.parse_postpartum_care_center(
-    #         postpartum_care_center_file_path
-    #     )
-    # )
-    # PostpartumCareCenterProcessor.output_postpartum_care_center(
-    #     processed_postpartum_care_center_df
-    # )
+    # Postpartum Care Center
+    processed_postpartum_care_center_df: pd.DataFrame = (
+        PostpartumCareCenterProcessor.parse_postpartum_care_center(
+            postpartum_care_center_file_path
+        )
+    )
+    PostpartumCareCenterProcessor.output_postpartum_care_center(
+        processed_postpartum_care_center_df
+    )
 
-    # # Summary Kindergarten
+    # Summary Kindergarten
     processed_summary_kindergarten_df: pd.DataFrame = (
         SummaryKindergarten.parse_summary_kindergarten(summary_kindergarten_file_path)
     )
     SummaryKindergarten.output_summary_kindergarten(processed_summary_kindergarten_df)
 
-    # # Infant Daycare Center
-    # processed_infant_daycare_center_df: pd.DataFrame = (
-    #     InfantDaycareCenter.parse_infant_daycare_center(infant_daycare_center_file_path)
-    # )
-    # InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
+    # Infant Daycare Center
+    processed_infant_daycare_center_df: pd.DataFrame = (
+        InfantDaycareCenter.parse_infant_daycare_center(infant_daycare_center_file_path)
+    )
+    InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
 
     # crawler: Crawler = Crawler()
     # crawler.crawl_the_cost(processed_summary_kindergarten_df)
