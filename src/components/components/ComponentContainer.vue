@@ -220,6 +220,13 @@ function toggleFavorite() {
 				<p>組件資訊</p>
 				<span>arrow_circle_right</span>
 			</button>
+			<button
+				v-if="notMoreInfo && !isMapLayer"
+				@click="dialogStore.showStory(content)"
+			>
+				<p>完整資訊</p>
+				<span>arrow_circle_right</span>
+			</button>
 		</div>
 	</div>
 </template>
