@@ -4160,6 +4160,29 @@
 			"links": null,
 			"tags": [],
 			"contributors": ["chunghwa"]
+		},
+		"203": {
+			"id": 203,
+			"index": "pregency_3",
+			"map_config": null,
+			"chart_config": {
+				"color": ["#bc7262","#fc7812","#fc1122"],
+				"types": ["TimelineSeparateChartWithForecast"],
+				"unit": "人數"
+			},
+			"name": "緊急救護服務",
+			"source": "消防局",
+			"history_data": true,
+			"time_from": "2023-05-01T00:00:00+08:00",
+			"time_to": "2023-05-29T14:50:55+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "day",
+			"short_desc": "顯示緊急救護的上月統計資訊",
+			"long_desc": "顯示緊急救護的上月統計資訊，資料來源為台北市消防局內部資料，每月更新。",
+			"use_case": "瞭解緊急救護服務案件的統計資訊，有助於優化救護服務的配置及應急措施。",
+			"links": null,
+			"tags": [],
+			"contributors": ["chunghwa"]
 		}
 	}
 }
