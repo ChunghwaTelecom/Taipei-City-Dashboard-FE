@@ -23,6 +23,7 @@ export const useDialogStore = defineStore("dialog", {
 			notificationBar: false,
 			reportIssue: false,
 			userSettings: false,
+			story: false,
 		},
 		// Stores the content for notifications
 		notification: {
@@ -36,6 +37,9 @@ export const useDialogStore = defineStore("dialog", {
 		},
 		// Stores the content for more info dialogs
 		moreInfoContent: null,
+		storyContent: {
+			content: null,
+		},
 	}),
 	getters: {},
 	actions: {
@@ -69,6 +73,11 @@ export const useDialogStore = defineStore("dialog", {
 		showMoreInfo(content) {
 			this.showDialog("moreInfo");
 			this.moreInfoContent = content;
+		},
+		// Show the more info dialog and update the content
+		showStory(content) {
+			this.showDialog("story");
+			this.storyContent.content = content;
 		},
 		// Show the report issue dialog and enter the id and name of the component of origin
 		showReportIssue(id, name) {

@@ -14,6 +14,7 @@ import { useDialogStore } from '../store/dialogStore';
 
 import ComponentContainer from '../components/components/ComponentContainer.vue';
 import MoreInfo from '../components/dialogs/MoreInfo.vue';
+import StoryDialog from '../components/dialogs/StoryDialog.vue';
 import ReportIssue from '../components/dialogs/ReportIssue.vue';
 
 const contentStore = useContentStore();
@@ -31,6 +32,7 @@ const dialogStore = useDialogStore();
 	<div v-else-if="contentStore.currentDashboard.content.length !== 0" class="dashboard">
 		<ComponentContainer v-for="item in contentStore.currentDashboard.content" :content="item" :key="item.index" />
 		<MoreInfo />
+		<StoryDialog />
 		<ReportIssue />
 	</div>
 	<!-- if dashboard is still loading -->

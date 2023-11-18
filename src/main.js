@@ -36,6 +36,7 @@ import MetroChart from "./components/charts/MetroChart.vue";
 import HeatmapChart from "./components/charts/HeatmapChart.vue";
 import TimelineSeparateChartWithForecast from "./components/charts/TimelineSeparateChartWithForecast.vue";
 import DataTableChart from "./components/charts/DataTableChart.vue";
+import StoryChart from "./components/charts/StoryChart.vue";
 
 const app = createApp(App);
 
@@ -60,5 +61,6 @@ app.component("MetroChart", MetroChart);
 app.component("HeatmapChart", HeatmapChart);
 app.component("TimelineSeparateChartWithForecast", TimelineSeparateChartWithForecast);
 app.component("DataTableChart", DataTableChart);
+app.component("StoryChart", StoryChart);
 
 app.mount("#app");
