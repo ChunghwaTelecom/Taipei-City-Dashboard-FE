@@ -4143,7 +4143,7 @@
 			"index": "nurseries",
 			"map_config": [
 				{
-					"index": "nurseries",
+					"index": "InfantDaycareCenter",
 					"paint": {
 						"circle-color": "#A25FAD"
 					},
@@ -4192,7 +4192,24 @@
 			"chart_config": {
 				"color": ["#FFC0CB"],
 				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
-				"unit": "家"
+				"unit": "家",
+				"map_filter": [
+					"dist",
+					[
+						"北投區",
+						"士林區",
+						"內湖區",
+						"南港區",
+						"松山區",
+						"信義區",
+						"中山區",
+						"大同區",
+						"中正區",
+						"萬華區",
+						"大安區",
+						"文山區"
+					]
+				]
 			},
 			"name": "托嬰中心分布",
 			"source": "臺北市資料大平臺",
