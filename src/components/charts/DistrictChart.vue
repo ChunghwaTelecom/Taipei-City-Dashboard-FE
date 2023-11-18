@@ -1,7 +1,7 @@
 <!-- Developed by Taipei Urban Intelligence Center 2023 -->
 
 <script setup>
-import { computed, defineProps, ref } from 'vue';
+import { computed, defineProps, ref, watch } from 'vue';
 import { useMapStore } from '../../store/mapStore';
 
 const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config']);
@@ -11,6 +11,20 @@ const targetDistrict = ref(null);
 const districtColor = ref(props.chart_config.color[0]);
 const mousePosition = ref({ x: null, y: null });
 const selectedIndex = ref(null);
+
+watch(targetDistrict, (newDistrict, oldDistrict) => {
+	if (newDistrict === oldDistrict) {
+		return;
+	}
+
+	if (oldDistrict !== null) {
+		mapStore.turnOffMapLayerVisibility("taipei_town_" + oldDistrict);
+	}
+
+	if (newDistrict !== null) {
+		mapStore.turnOnMapLayerVisibility("taipei_town_" + newDistrict);
+	}
+});
 
 // Parse District Data (to support 2D or 3D data)
 const districtData = computed(() => {
