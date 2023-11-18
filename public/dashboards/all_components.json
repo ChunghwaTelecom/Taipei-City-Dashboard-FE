@@ -4119,47 +4119,47 @@
 			"history_data": false,
 			"map_config": null,
 			"chart_config": {
-				"color": ["#FD5696", "#00A9E0"],
+				"color": ["#FD5696", "#00A9E0", "#FFD700", "#8A2BE2", "#32CD32", "#FF6347", "#9400D3", "#00CED1", "#FF8C00", "#696969", "#FF1493", "#1E90FF"],
 				"types": ["TimelineSeparateChart"],
-				"unit": "件"
+				"unit": "個新生兒"
 			},
-			"name": "刑事統計",
-			"source": "警察局",
-			"time_from": "2023-01-01T23:59:59+08:00",
-			"time_to": "2023-05-01T23:59:59+08:00",
+			"name": "臺北市各行政區新生兒出生數量",
+			"source": "臺北市政府民政局",
+			"time_from": "2001-01-01T23:59:59+08:00",
+			"time_to": "2022-12-31T23:59:59+08:00",
 			"update_freq": 1,
-			"update_freq_unit": "month",
-			"short_desc": "顯示近兩年每月的刑案統計資訊",
-			"long_desc": "顯示近兩年每月的刑案統計資訊，資料來源為台北市主計處開放資料，每月更新。",
-			"use_case": "藉由掌握台北市刑事案件近2年的統計資訊，我們可以瞭解案件的增減趨勢及相關特徵，有助於制定更有效的治安策略。",
+			"update_freq_unit": "year",
+			"short_desc": "顯示臺北市2001-2022的各行政區新生兒出生數量統計資訊",
+			"long_desc": "顯示臺北市2001-2022的各行政區新生兒出生數量統計資訊，資料來源為台北市主計處開放資料，每月更新。",
+			"use_case": "藉由統計臺北市近20年的統計資訊，我們可以瞭解的新生兒增減趨勢，有助於制定更有效的策略。",
 			"links": [
-				"https://data.taipei/dataset/detail?id=dc7e246a-a88e-42f8-8cd6-9739209af774"
+				"https://ca.gov.taipei/News_Content.aspx?n=8693DC9620A1AABF&sms=D19E9582624D83CB&s=F48862201B026A26"
 			],
 			"tags": [],
-			"contributors": ["tuic"]
+			"contributors": ["chunghwa"]
 		},
 		"202": {
 			"id": 202,
 			"index": "pregency_2",
 			"map_config": null,
 			"chart_config": {
-				"color": ["#bc7262"],
+				"color": ["#FFC0CB"],
 				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
-				"unit": "件"
+				"unit": "家"
 			},
-			"name": "緊急救護服務",
-			"source": "消防局",
+			"name": "臺北市各行政區託嬰中心數量",
+			"source": "臺北市資料大平臺",
 			"history_data": true,
-			"time_from": "2023-05-01T00:00:00+08:00",
-			"time_to": "2023-05-29T14:50:55+08:00",
+			"time_from": "2023-01-01T00:00:00+08:00",
+			"time_to": "2023-12-31T14:50:55+08:00",
 			"update_freq": 1,
-			"update_freq_unit": "day",
-			"short_desc": "顯示緊急救護的上月統計資訊",
-			"long_desc": "顯示緊急救護的上月統計資訊，資料來源為台北市消防局內部資料，每月更新。",
-			"use_case": "瞭解緊急救護服務案件的統計資訊，有助於優化救護服務的配置及應急措施。",
+			"update_freq_unit": "year",
+			"short_desc": "顯示臺北市各行政區託嬰中心統計資訊",
+			"long_desc": "顯示臺北市各行政區託嬰中心統計資訊，資料來源為臺北市資料大平臺，每年更新。",
+			"use_case": "瞭解臺北市各行政區託嬰中心統計資訊，有助於優化各行政區資源配置及優化。",
 			"links": null,
 			"tags": [],
-			"contributors": ["tuic"]
+			"contributors": ["chunghwa"]
 		}
 	}
 }
