@@ -187,7 +187,16 @@ export const useMapStore = defineStore("map", {
 				.then((rs) => {
 					this.addMapLayerSource(map_config, rs.data);
 				})
-				.catch((e) => console.error(e));
+				.catch((e) => {
+					console.error(e);
+					// If the first fetch fails, try to load data from the fallback map
+					axios
+						.get(`${BASE_URL}/mapDataExt/${map_config.index}.geojson`)
+						.then((rs) => {
+							this.addMapLayerSource(map_config, rs.data);
+						})
+						.catch((e) => console.error(e));
+				});
 		},
 		// 3. Add the layer data as a source in mapbox
 		addMapLayerSource(map_config, data) {
