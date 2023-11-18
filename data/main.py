@@ -2,7 +2,9 @@ import requests
 import pandas as pd
 from tqdm import tqdm
 from typing import Dict, List
+from sklearn.linear_model import LinearRegression
 from urllib.parse import quote
+from bs4 import BeautifulSoup
 
 
 def get_map_box_geo_data_from_address(actural_address: str) -> Dict[str, object]:
@@ -99,36 +101,36 @@ class SummaryKindergarten:
     def parse_summary_kindergarten(file_path: str) -> pd.DataFrame:
         input_df: pd.DataFrame = pd.read_csv(file_path)
 
-        map_box_geo_data_list: List[Dict[str, object]] = []
+        # map_box_geo_data_list: List[Dict[str, object]] = []
 
-        for _, row in tqdm(input_df.iterrows()):
-            map_box_geo_data = get_map_box_geo_data_from_address(row["幼兒園住址"])
-            map_box_geo_data_list.append(map_box_geo_data)
+        # for _, row in tqdm(input_df.iterrows()):
+        #     map_box_geo_data = get_map_box_geo_data_from_address(row["幼兒園住址"])
+        #     map_box_geo_data_list.append(map_box_geo_data)
 
-        center_longitudes = [
-            map_box_geo_data["center_longitude"]
-            for map_box_geo_data in map_box_geo_data_list
-        ]
+        # center_longitudes = [
+        #     map_box_geo_data["center_longitude"]
+        #     for map_box_geo_data in map_box_geo_data_list
+        # ]
 
-        center_latitudes = [
-            map_box_geo_data["center_latitude"]
-            for map_box_geo_data in map_box_geo_data_list
-        ]
+        # center_latitudes = [
+        #     map_box_geo_data["center_latitude"]
+        #     for map_box_geo_data in map_box_geo_data_list
+        # ]
 
-        locality_ids = [
-            map_box_geo_data["locality_id"]
-            for map_box_geo_data in map_box_geo_data_list
-        ]
+        # locality_ids = [
+        #     map_box_geo_data["locality_id"]
+        #     for map_box_geo_data in map_box_geo_data_list
+        # ]
 
-        locality_texts = [
-            map_box_geo_data["locality_text"]
-            for map_box_geo_data in map_box_geo_data_list
-        ]
+        # locality_texts = [
+        #     map_box_geo_data["locality_text"]
+        #     for map_box_geo_data in map_box_geo_data_list
+        # ]
 
-        input_df["center_longitude"] = center_longitudes
-        input_df["center_latitudes"] = center_latitudes
-        input_df["locality_ids"] = locality_ids
-        input_df["locality_texts"] = locality_texts
+        # input_df["center_longitude"] = center_longitudes
+        # input_df["center_latitudes"] = center_latitudes
+        # input_df["locality_ids"] = locality_ids
+        # input_df["locality_texts"] = locality_texts
 
         return input_df
 
@@ -197,12 +199,100 @@ class InfantDaycareCenter:
             file.write(processed_json)
 
 
+class Crawler:
+    def __init__(self):
+        super().__init__()
+
+    def get_hidden_value(
+        self,
+    ):
+        response = requests.get("https://ap.ece.moe.edu.tw/webecems/pubSearch.aspx")
+        html = response.text
+        soup = BeautifulSoup(html, "html.parser")
+        viewstate = soup.find("input", {"name": "__VIEWSTATE"}).get("value")
+        eventvalidation = soup.find("input", {"name": "__EVENTVALIDATION"}).get("value")
+        viewstatencrypted = soup.find("input", {"name": "__VIEWSTATEENCRYPTED"}).get(
+            "value"
+        )
+        viewstategenerator = soup.find("input", {"name": "__VIEWSTATEGENERATOR"}).get(
+            "value"
+        )
+
+        return viewstate, eventvalidation, viewstatencrypted, viewstategenerator
+
+    def get_search_result(
+        self, viewstate, eventvalidation, viewstatencrypted, viewstategenerator
+    ):
+        url = "https://ap.ece.moe.edu.tw/webecems/pubSearch.aspx"
+        data = {
+            "ScriptManager1": quote("UpdatePanel1|btnSearch"),
+            "ddlKey": "",
+            "txtKeyNameS": "財團法人林迺翁文教基金會附設臺北市私立天鵝堡幼兒園",
+            "ddlCityS": "",
+            "ddlAreaS": "",
+            "hY": "",
+            "__EVENTTARGET": "",
+            "__EVENTARGUMENT": "",
+            "__EVENTVALIDATION": eventvalidation,
+            "__LASTFOCUS": "",
+            "__VIEWSTATE": viewstate,
+            "__VIEWSTATEENCRYPTED": viewstatencrypted,
+            "__VIEWSTATEGENERATOR": viewstategenerator,
+            "__ASYNCPOST": "false",
+            "btnSearch": quote("搜尋"),
+        }
+        response = requests.post(url, data=data)
+
+        return response
+
+    def crawl_the_cost(self, input_df: pd.DataFrame):
+        (
+            viewstate,
+            eventvalidation,
+            viewstatencrypted,
+            viewstategenerator,
+        ) = self.get_hidden_value()
+        self.get_search_result(
+            viewstate, eventvalidation, viewstatencrypted, viewstategenerator
+        )
+
+
+class FuturePredictor:
+    def __init__():
+        super().__init__()
+
+    def predict(input_df):
+        input_df["Year"] = input_df["Year"].astype(int)
+        input_df["First Half"] = input_df["First Half"].str.replace(",", "").astype(int)
+        input_df["Second Half"] = (
+            input_df["Second Half"].str.replace(",", "").astype(int)
+        )
+
+        # Training linear regression models for 'First Half' and 'Second Half'
+        model_first_half_new = LinearRegression()
+        model_second_half_new = LinearRegression()
+
+        model_first_half_new.fit(input_df[["Year"]], input_df["First Half"])
+        model_second_half_new.fit(input_df[["Year"]], input_df["Second Half"])
+
+        # Predicting for the years 113 to 117
+        future_years_new = pd.DataFrame({"Year": [113, 114, 115, 116, 117]})
+        future_years_new["First Half Predicted"] = model_first_half_new.predict(
+            future_years_new[["Year"]]
+        )
+        future_years_new["Second Half Predicted"] = model_second_half_new.predict(
+            future_years_new[["Year"]]
+        )
+
+        return future_years_new
+
+
 def main():
-    postpartum_care_center_file_path = (
-        "data/raw_data/postpartum_care_center_with_money.csv"
-    )
+    # postpartum_care_center_file_path = (
+    #     "data/raw_data/postpartum_care_center_with_money.csv"
+    # )
     summary_kindergarten_file_path = "data/raw_data/summary_kindergarten.csv"
-    infant_daycare_center_file_path = "data/raw_data/infant_daycare_center.csv"
+    # infant_daycare_center_file_path = "data/raw_data/infant_daycare_center.csv"
 
     # # Postpartum Care Center
     # processed_postpartum_care_center_df: pd.DataFrame = (
@@ -215,16 +305,19 @@ def main():
     # )
 
     # # Summary Kindergarten
-    # processed_summary_kindergarten_df: pd.DataFrame = (
-    #     SummaryKindergarten.parse_summary_kindergarten(summary_kindergarten_file_path)
-    # )
+    processed_summary_kindergarten_df: pd.DataFrame = (
+        SummaryKindergarten.parse_summary_kindergarten(summary_kindergarten_file_path)
+    )
     # SummaryKindergarten.output_summary_kindergarten(processed_summary_kindergarten_df)
 
-    # Infant Daycare Center
-    processed_infant_daycare_center_df: pd.DataFrame = (
-        InfantDaycareCenter.parse_infant_daycare_center(infant_daycare_center_file_path)
-    )
-    InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
+    # # Infant Daycare Center
+    # processed_infant_daycare_center_df: pd.DataFrame = (
+    #     InfantDaycareCenter.parse_infant_daycare_center(infant_daycare_center_file_path)
+    # )
+    # InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
+
+    crawler: Crawler = Crawler()
+    crawler.crawl_the_cost(processed_summary_kindergarten_df)
 
 
 if __name__ == "__main__":
