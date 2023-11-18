@@ -12,4 +12,5 @@ export const chartTypes = {
 	RadarChart: "雷達圖",
 	HeatmapChart: "熱力圖",
 	TimelineSeparateChartWithForecast: "折線圖(預測)",
+	DataTableChart: "表格",
 };

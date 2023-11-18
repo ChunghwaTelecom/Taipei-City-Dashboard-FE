@@ -66,6 +66,10 @@ function toggleFavorite() {
 		contentStore.favoriteComponent(props.content.id);
 	}
 }
+
+function isStoryMode(content) {
+	return content.story && content.story.length > 0;
+}
 </script>
 
 <template>
@@ -218,6 +222,13 @@ function toggleFavorite() {
 				@click="dialogStore.showMoreInfo(content)"
 			>
 				<p>組件資訊</p>
+				<span>arrow_circle_right</span>
+			</button>
+			<button
+				v-if="notMoreInfo && !isMapLayer && isStoryMode(content)"
+				@click="dialogStore.showStory(content)"
+			>
+				<p>情境模式</p>
 				<span>arrow_circle_right</span>
 			</button>
 		</div>
