@@ -91,6 +91,25 @@ export const useMapStore = defineStore("map", {
 							data: data,
 						})
 						.addLayer(TaipeiTown);
+
+						// iterator geojson all features with TNAME property and add layer to map 
+						data.features.forEach((feature) => {
+							const layerId = "taipei_town_" + feature.properties.TNAME;
+							if (feature.properties.TNAME) {
+								this.map.addLayer({
+									id: layerId,
+									type: "line",
+									source: "taipei_town",
+									paint: {
+										"line-color": "#ffffff",
+										"line-width": 3,
+										"line-opacity": 0.5,
+									},
+									filter: ["==", "TNAME", feature.properties.TNAME],
+								});
+								this.map.setLayoutProperty(layerId, "visibility", "none");
+							}
+						});
 				});
 			fetch(`${BASE_URL}/mapData/taipei_village.geojson`)
 				.then((response) => response.json())
@@ -332,25 +351,32 @@ export const useMapStore = defineStore("map", {
 			this.map.setLayoutProperty(mapLayerId, "visibility", "visible");
 		},
 		// 6. Turn off the visibility of an exisiting map layer but don't remove it completely
-		turnOffMapLayerVisibility(map_config) {
-			map_config.forEach((element) => {
-				let mapLayerId = `${element.index}-${element.type}`;
-				this.loadingLayers = this.loadingLayers.filter(
-					(el) => el !== mapLayerId
-				);
-
-				if (this.map.getLayer(mapLayerId)) {
-					this.map.setFilter(mapLayerId, null);
-					this.map.setLayoutProperty(
-						mapLayerId,
-						"visibility",
-						"none"
-					);
-				}
+		turnOffMapLayerVisibility(map_config_or_id) {
+			if (typeof map_config_or_id === "string") {
+				this.map.setLayoutProperty(map_config_or_id, "visibility", "none");
 				this.currentVisibleLayers = this.currentVisibleLayers.filter(
-					(element) => element !== mapLayerId
+					(element) => element !== map_config_or_id
 				);
-			});
+			} else {
+				map_config.forEach((element) => {
+					let mapLayerId = `${element.index}-${element.type}`;
+					this.loadingLayers = this.loadingLayers.filter(
+						(el) => el !== mapLayerId
+					);
+
+					if (this.map.getLayer(mapLayerId)) {
+						this.map.setFilter(mapLayerId, null);
+						this.map.setLayoutProperty(
+							mapLayerId,
+							"visibility",
+							"none"
+						);
+					}
+					this.currentVisibleLayers = this.currentVisibleLayers.filter(
+						(element) => element !== mapLayerId
+					);
+				});
+			}
 			this.removePopup();
 		},
 

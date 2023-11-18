@@ -4123,7 +4123,7 @@
 				"types": ["TimelineSeparateChart"],
 				"unit": "個新生兒"
 			},
-			"name": "臺北市各行政區新生兒出生數量",
+			"name": "新生兒出生數量",
 			"source": "臺北市政府民政局",
 			"time_from": "2001-01-01T23:59:59+08:00",
 			"time_to": "2022-12-31T23:59:59+08:00",
@@ -4147,7 +4147,7 @@
 				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
 				"unit": "家"
 			},
-			"name": "臺北市各行政區託嬰中心數量",
+			"name": "託嬰中心數量",
 			"source": "臺北市資料大平臺",
 			"history_data": false,
 			"time_from": "2023-01-01T00:00:00+08:00",
