@@ -4112,6 +4112,54 @@
 			],
 			"source": "資訊局",
 			"contributors": ["tuic"]
+		},
+		"201": {
+			"id": 201,
+			"index": "pregency_1",
+			"history_data": false,
+			"map_config": null,
+			"chart_config": {
+				"color": ["#FD5696", "#00A9E0"],
+				"types": ["TimelineSeparateChart"],
+				"unit": "件"
+			},
+			"name": "刑事統計",
+			"source": "警察局",
+			"time_from": "2023-01-01T23:59:59+08:00",
+			"time_to": "2023-05-01T23:59:59+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "month",
+			"short_desc": "顯示近兩年每月的刑案統計資訊",
+			"long_desc": "顯示近兩年每月的刑案統計資訊，資料來源為台北市主計處開放資料，每月更新。",
+			"use_case": "藉由掌握台北市刑事案件近2年的統計資訊，我們可以瞭解案件的增減趨勢及相關特徵，有助於制定更有效的治安策略。",
+			"links": [
+				"https://data.taipei/dataset/detail?id=dc7e246a-a88e-42f8-8cd6-9739209af774"
+			],
+			"tags": [],
+			"contributors": ["tuic"]
+		},
+		"202": {
+			"id": 202,
+			"index": "pregency_2",
+			"map_config": null,
+			"chart_config": {
+				"color": ["#bc7262"],
+				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
+				"unit": "件"
+			},
+			"name": "緊急救護服務",
+			"source": "消防局",
+			"history_data": true,
+			"time_from": "2023-05-01T00:00:00+08:00",
+			"time_to": "2023-05-29T14:50:55+08:00",
+			"update_freq": 1,
+			"update_freq_unit": "day",
+			"short_desc": "顯示緊急救護的上月統計資訊",
+			"long_desc": "顯示緊急救護的上月統計資訊，資料來源為台北市消防局內部資料，每月更新。",
+			"use_case": "瞭解緊急救護服務案件的統計資訊，有助於優化救護服務的配置及應急措施。",
+			"links": null,
+			"tags": [],
+			"contributors": ["tuic"]
 		}
 	}
 }
