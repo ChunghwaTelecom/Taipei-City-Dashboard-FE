@@ -23,6 +23,9 @@ pnpm-debug.log*
 *.sw?
 node_modules
 
+# IDE - VSCode
+.vscode
+
 # Firebase
 /.firebase
 .firebase
