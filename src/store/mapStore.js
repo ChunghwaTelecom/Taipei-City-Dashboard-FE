@@ -367,7 +367,7 @@ export const useMapStore = defineStore("map", {
 					(element) => element !== map_config_or_id
 				);
 			} else {
-				map_config.forEach((element) => {
+				map_config_or_id.forEach((element) => {
 					let mapLayerId = `${element.index}-${element.type}`;
 					this.loadingLayers = this.loadingLayers.filter(
 						(el) => el !== mapLayerId
