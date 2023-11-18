@@ -1,0 +1,59 @@
+{
+  "data": [
+    {
+      "name": "中正區",
+      "data": [
+        ["臺北市私立小哈利托嬰中心","甲",null,null,"甲",null,null],
+        ["臺北市私立宥緣托嬰中心",null,"乙","乙",null,null,"乙"],
+        ["臺北市私立宥宜托嬰中心", null,"乙","甲",null,null,"乙"],
+        ["立法院附設臺北市私立員工子女托嬰中心",null,"通過","優",null,null,"優"],
+        ["臺北市私立小天心東門托嬰中心", null,null,"優",null,null,"優"],
+        ["臺北市私立維棠托嬰中心", null,null,null,"甲",null,null],
+        ["臺北市私立家森寶貝托嬰中心",null,null,null,null,null,"甲"],
+        ["臺北市私立小天心晴晴托嬰中心",null,null,null,null,"甲",null],
+        ["臺北市私立萌芽托嬰中心",null,null,null,null,null, "乙"]
+      ]
+    },
+    {
+      "name": "大同區",
+      "data": [
+        ["臺北市私立詠荺托嬰中心","通過",null,null,"乙",null,null],
+        ["臺北市私立海王子托嬰中心",  null,null,null,null,null, "甲"],
+        ["臺北市私立喜樂大同托嬰中心",null,null,null,null,null,"乙"]
+      ]
+    },
+    {
+      "name": "中山區",
+      "data": [
+        ["臺北市私立卡兒堡托嬰中心", null,"乙",null,null,"乙"],
+        ["臺北市私立日光貝比托嬰中心", "甲",null,null,"乙",null,null],
+        ["臺北市私立笙愛托嬰中心",null,null,"乙",null,null,"乙"],
+        ["臺北市私立韋斯登托嬰中心",null,null,"丙(輔導通過)",null,"乙",null],
+        ["臺北市私立松江蒙特梭利托嬰中心","通過",null,null,"甲",null,null],
+        ["臺北市私立萌家園托嬰中心", null,null,"甲",null,null,"優"],
+        ["臺北市私立布萊茲托嬰中心", null,null,"乙",null,null,"乙"],
+        ["臺北市私立龍江媽咪托嬰中心",null,null,"乙",null,null,"乙"],
+        ["臺北市私立愛寶貝大直園托嬰中心",null,null,"甲",null,null,"甲"],
+        ["臺北市私立宜家托嬰中心",null,null,null,"乙",null,null],
+        ["臺北市私立蘊品蒙特梭利托嬰中心",null,null,null,"乙",null,null],
+        ["臺北市私立大愛托嬰中心", null,null,null,null,"乙",null],
+        ["臺北市私立寶貝托嬰中心",null,null,null,null,"甲",null],
+        ["臺北市私立露西亞托嬰中心",null,null,null,null,null,"乙"],
+        ["臺北市私立精英寶貝托嬰中心", null,null,null,null,null,"乙"],
+        ["臺北市私立愛寶貝明水園托嬰中心", null,null,null,null,null,"甲"],
+
+
+      ]
+    },
+    {
+      "name": "松山區",
+      "data": [
+        ["臺北市私立勁寶兒民權托嬰中心", "乙",null,null,"甲",null,null]
+      ]
+
+    },
+    {
+      "name": "士林區"
+    }
+  ]
+}
