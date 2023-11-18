@@ -44,7 +44,7 @@ const chartOptions = ref({
 		type: 'gradient',
 		gradient: {
 			shade: 'dark',
-			gradientToColors: [ '#FDD835'],
+			gradientToColors: [ '#FF69B4' ],
 			shadeIntensity: 1,
 			type: 'horizontal',
 			opacityFrom: 1,
@@ -75,12 +75,13 @@ const chartOptions = ref({
 		xaxis: [{
 			x: new Date().getTime(),
 			strokeDashArray: 0,
-			borderColor: '#775DD0',
+			borderColor: "#C2185B",
 			label: {
-				borderColor: '#775DD0',
+				borderColor: "#C2185B",
+				borderWidth: 2,
 				style: {
 					color: '#fff',
-					background: '#775DD0',
+					background: "#C2185B",
 				}
 			}
 		}]
