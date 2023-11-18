@@ -1,52 +1,73 @@
 <script setup>
 import { computed, defineProps, ref } from 'vue';
 
-
 const props = defineProps(['chart_config', 'activeChart', 'series', 'map_config']);
 
-function getDistrict() {
-	const result = [];
-	props.series.forEach(data => {
-		result.push(data.name);
+const tableData = ref({});
+
+tableData.value = {
+	data: props.series,
+};
+
+const filterText = ref('');
+
+const filteredData = computed(() => {
+	if (!filterText.value) {
+		return tableData.value.data;
+	}
+	return tableData.value.data.filter(row => {
+		return Object.values(row).some(value => {
+			return String(value).toLowerCase().includes(filterText.value.toLowerCase());
+		});
 	});
-	return result;
-}
-
-const tableData = ref({  });
-function onSelectChange($event) {
-	const filtered = props.series.filter(data=> {
-		return (data.name === $event.target.value);
-	})
-	tableData.value = filtered[0];
-}
-
+});
 </script>
 
-
-
 <template>
-	<div v-if="activeChart === 'DataTableChart'" >
-		行政區: <select @change="onSelectChange($event)">
-				<option v-for="option in getDistrict()" v-bind:value="option" >
-					{{ option }}
-				</option>
-			</select>
-		<table v-if="tableData">
+	<div v-if="activeChart === 'DataTableChart'">
+		<input type="text" v-model="filterText" placeholder="輸入要篩選的資料值" />
+		<table v-if="filteredData">
 			<thead>
-			<tr>
-				<th v-for="(value, key) in props.chart_config.categories" :key="key">
-					{{ value }}
-				</th>
-			</tr>
+				<tr>
+					<th v-for="(value, key) in props.chart_config.categories" :key="key">
+						{{ value }}
+					</th>
+				</tr>
 			</thead>
 			<tbody>
-			<tr v-for="(row, index) in tableData.data" :key="index">
-				<td v-for="(value, key) in row" :key="key">
-					{{ value }}
-				</td>
-			</tr>
+				<tr v-for="(row, index) in filteredData" :key="index">
+					<td v-for="(value, key) in row" :key="key">
+						{{ value }}
+					</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
-
 </template>
+
+<style scoped>
+input {
+	font-size: small;
+	margin-bottom: 4px;
+}
+table {
+	font-size: small;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+th,
+td {
+	text-align: left;
+	padding: 8px;
+}
+
+th {
+	background-color: rgba(255, 255, 255, 0.2);
+	color: white;
+}
+
+tr:nth-child(even) {
+	background-color: rgba(255, 255, 255, 0.05);
+}
+</style>
