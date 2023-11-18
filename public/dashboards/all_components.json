@@ -4115,7 +4115,7 @@
 		},
 		"201": {
 			"id": 201,
-			"index": "pregency_1",
+			"index": "newborn",
 			"history_data": false,
 			"map_config": null,
 			"chart_config": {
@@ -4123,7 +4123,7 @@
 				"types": ["TimelineSeparateChart"],
 				"unit": "個新生兒"
 			},
-			"name": "新生兒出生數量",
+			"name": "新生兒數量",
 			"source": "臺北市政府民政局",
 			"time_from": "2001-01-01T23:59:59+08:00",
 			"time_to": "2022-12-31T23:59:59+08:00",
@@ -4140,14 +4140,61 @@
 		},
 		"202": {
 			"id": 202,
-			"index": "pregency_2",
-			"map_config": null,
+			"index": "nurseries",
+			"map_config": [
+				{
+					"index": "nurseries",
+					"paint": {
+						"circle-color": "#A25FAD"
+					},
+					"property": [
+						{
+							"key": "name",
+							"name": "地點"
+						},
+						{
+							"key": "dist",
+							"name": "行政區"
+						},
+						{
+							"key": "addr",
+							"name": "地址"
+						},
+						{
+							"key": "2017_rating",
+							"name": "106年評鑑"
+						},
+						{
+							"key": "2018_rating",
+							"name": "107年評鑑"
+						},
+						{
+							"key": "2019_rating",
+							"name": "108年評鑑"
+						},
+						{
+							"key": "2020_rating",
+							"name": "109年評鑑"
+						},
+						{
+							"key": "2021_rating",
+							"name": "110年評鑑"
+						},
+						{
+							"key": "2022_rating",
+							"name": "111年評鑑"
+						}
+					],
+					"type": "circle",
+					"title": "託嬰中心"
+				}
+			],
 			"chart_config": {
 				"color": ["#FFC0CB"],
 				"types": ["DistrictChart", "RadarChart", "ColumnChart"],
 				"unit": "家"
 			},
-			"name": "託嬰中心數量",
+			"name": "託嬰中心分布",
 			"source": "臺北市資料大平臺",
 			"history_data": false,
 			"time_from": "2023-01-01T00:00:00+08:00",
