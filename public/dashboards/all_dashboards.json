@@ -49,6 +49,12 @@
 			"icon": "bug_report"
 		},
 		{
+			"name": "助您好孕",
+			"index": "pregnency",
+			"components": ["117", "118", "61", "74"],
+			"icon": "pregnant_woman"
+		},
+		{
 			"name": "收藏組件",
 			"index": "favorites",
 			"components": ["108", "22", "79", "60", "107"],
