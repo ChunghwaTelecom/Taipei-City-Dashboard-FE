@@ -4476,7 +4476,8 @@
 			"id": 210,
 			"index": "story_chart",
 			"chart_config": {
-				"types": ["StoryChart"]
+				"types": ["StoryChart"],
+				"template": "pregency.html"
 			},
 			"name": "祝您好孕",
 			"source": "",

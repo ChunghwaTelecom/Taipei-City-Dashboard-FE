@@ -23,7 +23,7 @@ function changeActiveChart(chartName) {
 		:dialog="`story`"
 		@on-close="dialogStore.hideAllDialogs"
 	>
-		<div v-if="dialogStore.storyContent.content.story.length !== 0" class="dashboard">
+		<div v-if="dialogStore.storyContent.content.story.length !== 0" >
 			<ComponentContainer
 				v-for="item in dialogStore.storyContent.content.story"
 				:content="contentStore.components[item]"
@@ -35,11 +35,11 @@ function changeActiveChart(chartName) {
 
 <style scoped lang="scss">
 .dashboard {
-	max-height: calc(100vh - 127px);
-	max-height: calc(var(--vh) * 100 - 127px);
-	display: grid;
-	row-gap: var(--font-s);
-	column-gap: var(--font-s);
+	//max-height: calc(100vh - 127px);
+	//max-height: calc(var(--vh) * 100 - 127px);
+	//display: grid;
+	//row-gap: var(--font-s);
+	//column-gap: var(--font-s);
 	margin: var(--font-m) var(--font-m);
 	overflow-y: scroll;
 
@@ -64,8 +64,8 @@ function changeActiveChart(chartName) {
 
 		&-content {
 			width: 100%;
-			height: calc(100vh - 127px);
-			height: calc(var(--vh) * 100 - 127px);
+			//height: calc(100vh - 127px);
+			//height: calc(var(--vh) * 100 - 127px);
 			display: flex;
 			flex-direction: column;
 			align-items: center;
