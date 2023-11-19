@@ -1,5 +1,5 @@
 <script setup>
-import { defineProps, onUpdated } from "vue";
+import { defineProps, onMounted, onUpdated } from "vue";
 
 const props = defineProps(["chart_config", "activeChart", "series"]);
 
@@ -39,8 +39,8 @@ function drawBubble(bubble, svg) {
 	circle.setAttribute("cx", bubble.x);
 	circle.setAttribute("cy", bubble.y);
 	circle.setAttribute("r", bubble.radius);
-	circle.setAttribute("fill", "rgba(0, 0, 255, 0.5)"); // Semi-transparent blue
-	circle.setAttribute("stroke", "black");
+	circle.setAttribute("fill", "rgba(255, 192, 203, 0.6)"); // Semi-transparent blue
+	circle.setAttribute("stroke", "rgba(255, 192, 203, 1)");
 	let text = document.createElementNS("http://www.w3.org/2000/svg", "text");
 	text.setAttribute("x", bubble.x + 1);
 	text.setAttribute("y", bubble.y + 1);
@@ -76,7 +76,11 @@ function createBubbleChart() {
 		}
 	}
 }
-
+onMounted(() => {
+	setTimeout(() => {
+		createBubbleChart();
+	}, 100);
+});
 onUpdated(() => {
 	createBubbleChart();
 });
