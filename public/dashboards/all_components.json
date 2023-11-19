@@ -4473,6 +4473,42 @@
 			"tags": [],
 			"contributors": ["chunghwa"]
 		},
+		"207": {
+			"id": 207,
+			"index": "kindergarten_hot_area",
+			"map_config": null,
+			"chart_config": {
+				"color": ["#9c7a3e", "#b7e28e", "#7febd0", "#8ce8ff"],
+				"types": [ "BubbleChart", "ColumnChart"],
+				"unit": "所",
+				"categories": [
+					"北投區",
+					"士林區",
+					"內湖區",
+					"南港區",
+					"松山區",
+					"信義區",
+					"中山區",
+					"大同區",
+					"中正區",
+					"萬華區",
+					"大安區",
+					"文山區"
+				]
+			},
+			"name": "幼兒園分區",
+			"source": "臺北市資料大平臺",
+			"time_from": "2023-06-02T00:00:00+08:00",
+			"time_to": null,
+			"update_freq": null,
+			"update_freq_unit": null,
+			"short_desc": "顯示台北市幼兒園總計",
+			"long_desc": "顯示台北市幼兒園總計，資料來源為臺北市資料大平臺，不定期更新。",
+			"use_case": "透過這些點位資訊，我們可以更有效地了解幼兒園的分佈情況，並根據需求進行相應的政策調整，提供更好的育幼環境。",
+			"links": null,
+			"tags": [],
+			"contributors": ["chunghwa"]
+		},
 		"210": {
 			"id": 210,
 			"index": "story_chart",
