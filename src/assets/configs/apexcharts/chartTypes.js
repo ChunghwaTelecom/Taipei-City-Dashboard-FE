@@ -13,4 +13,5 @@ export const chartTypes = {
 	HeatmapChart: "熱力圖",
 	TimelineSeparateChartWithForecast: "折線圖(預測)",
 	DataTableChart: "表格",
+	BubbleChart: "泡泡圖",
 };
