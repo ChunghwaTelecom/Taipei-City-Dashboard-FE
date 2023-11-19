@@ -21,6 +21,12 @@ function generateRandomBubble(maxWidth, maxHeight, category, value) {
 	let radius = Math.sqrt(value) * 5; // Calculate radius based on the square root of the value
 	let x = Math.random() * (maxWidth - 2 * radius) + radius;
 	let y = Math.random() * (maxHeight - 2 * radius) + radius;
+
+	// Ensure x is within bounds
+	x = Math.max(radius, Math.min(x, maxWidth - radius));
+
+	// Ensure y is within bounds
+	y = Math.max(radius, Math.min(y, maxHeight - radius));
 	return { x: x, y: y, radius: radius, text: category };
 }
 
@@ -91,7 +97,7 @@ onUpdated(() => {
 <template>
 	<div v-if="activeChart === 'BubbleChart'">
 		<div>
-			<svg :id="svgId" width="400" height="240"></svg>
+			<svg :id="svgId" width="360" height="240"></svg>
 		</div>
 	</div>
 </template>
