@@ -4478,7 +4478,7 @@
 			"index": "kindergarten_hot_area",
 			"map_config": null,
 			"chart_config": {
-				"color": ["#9c7a3e", "#b7e28e", "#7febd0", "#8ce8ff"],
+				"color": [ "#E91E63" ],
 				"types": [ "BubbleChart", "ColumnChart"],
 				"unit": "所",
 				"categories": [
