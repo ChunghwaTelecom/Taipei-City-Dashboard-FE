@@ -26,6 +26,7 @@ const filteredData = computed(() => {
 <template>
 	<div v-if="activeChart === 'DataTableChart'">
 		<input type="text" v-model="filterText" placeholder="輸入要篩選的資料值" />
+		篩選的出資料共:  {{filteredData.length}} 筆
 		<table v-if="filteredData">
 			<thead>
 				<tr>
