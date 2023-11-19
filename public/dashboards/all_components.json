@@ -1401,7 +1401,7 @@
 			],
 			"chart_config": {
 				"color": ["#9c7a3e", "#b7e28e", "#7febd0", "#8ce8ff"],
-				"types": ["BarPercentChart", "ColumnChart"],
+				"types": ["BarPercentChart", "ColumnChart", "BubbleChart"],
 				"unit": "棟",
 				"categories": [
 					"北投區",
