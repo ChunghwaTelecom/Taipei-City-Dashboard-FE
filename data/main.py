@@ -198,6 +198,34 @@ class InfantDaycareCenter:
         ) as file:
             file.write(processed_json)
 
+    @staticmethod
+    def output_204_json(file_path: str):
+        input_df: pd.DataFrame = pd.read_csv(file_path)
+        input_df.drop(
+            columns=[
+                "id",
+                "addr",
+                "行政區碼",
+                "center_longitude",
+                "center_latitudes",
+                "locality_ids",
+            ]
+        )
+        new_order = [
+            "dist",
+            "name",
+            "2017_rating",
+            "2018_rating",
+            "2019_rating",
+            "2020_rating",
+            "2021_rating",
+            "2022_rating",
+        ]
+        input_df = input_df[new_order]
+        input_df.fillna("", inplace=True)
+        value_list = input_df.values.tolist()
+        print(value_list)
+
 
 class Crawler:
     def __init__(self):
@@ -295,26 +323,28 @@ def main():
     infant_daycare_center_file_path = "data/raw_data/infant_daycare_center.csv"
 
     # Postpartum Care Center
-    processed_postpartum_care_center_df: pd.DataFrame = (
-        PostpartumCareCenterProcessor.parse_postpartum_care_center(
-            postpartum_care_center_file_path
-        )
-    )
-    PostpartumCareCenterProcessor.output_postpartum_care_center(
-        processed_postpartum_care_center_df
-    )
+    # processed_postpartum_care_center_df: pd.DataFrame = (
+    #     PostpartumCareCenterProcessor.parse_postpartum_care_center(
+    #         postpartum_care_center_file_path
+    #     )
+    # )
+    # PostpartumCareCenterProcessor.output_postpartum_care_center(
+    #     processed_postpartum_care_center_df
+    # )
 
-    # Summary Kindergarten
-    processed_summary_kindergarten_df: pd.DataFrame = (
-        SummaryKindergarten.parse_summary_kindergarten(summary_kindergarten_file_path)
-    )
-    SummaryKindergarten.output_summary_kindergarten(processed_summary_kindergarten_df)
+    # # Summary Kindergarten
+    # processed_summary_kindergarten_df: pd.DataFrame = (
+    #     SummaryKindergarten.parse_summary_kindergarten(summary_kindergarten_file_path)
+    # )
+    # SummaryKindergarten.output_summary_kindergarten(processed_summary_kindergarten_df)
 
     # Infant Daycare Center
-    processed_infant_daycare_center_df: pd.DataFrame = (
-        InfantDaycareCenter.parse_infant_daycare_center(infant_daycare_center_file_path)
-    )
-    InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
+    # processed_infant_daycare_center_df: pd.DataFrame = (
+    #     InfantDaycareCenter.parse_infant_daycare_center(infant_daycare_center_file_path)
+    # )
+    # InfantDaycareCenter.output_infant_daycare_center(processed_infant_daycare_center_df)
+    infant_daycare_center_file_path = "data/clean_data/infant_daycare_center.csv"
+    InfantDaycareCenter.output_204_json(infant_daycare_center_file_path)
 
     # crawler: Crawler = Crawler()
     # crawler.crawl_the_cost(processed_summary_kindergarten_df)
