@@ -4,6 +4,7 @@ from tqdm import tqdm
 from typing import Dict, List
 from sklearn.linear_model import LinearRegression
 from urllib.parse import quote
+from selenium import webdriver
 from bs4 import BeautifulSoup
 
 
@@ -283,6 +284,25 @@ class Crawler:
         self.get_search_result(
             viewstate, eventvalidation, viewstatencrypted, viewstategenerator
         )
+
+    def simulate_click(
+        self,
+    ):
+        driver = webdriver.Chrome()
+
+        # Open the webpage
+        driver.get("URL_OF_THE_PAGE")
+
+        # Find the submit button and click
+        submit_button = driver.find_element_by_id("GridView1_btnMore_0")
+        submit_button.click()
+
+        # Now, you can access the new content loaded by the click
+        # For example, you can get the page source:
+        new_content = driver.page_source
+
+        # Don't forget to close the browser
+        driver.quit()
 
 
 class FuturePredictor:
