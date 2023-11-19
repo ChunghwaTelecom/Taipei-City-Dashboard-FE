@@ -74,7 +74,7 @@ function createBubbleChart() {
 		for (let i = 0; i < numberOfBubbles; i++) {
 			let category = props.chart_config.categories[i];
 			let value = props.series[0].data[i];
-			let radius = (value / maxValue) * 30;
+			let radius = (value / maxValue) * 50;
 			addBubble(bubbles, chartWidth, chartHeight, maxAttempts, category, radius);
 		}
 
