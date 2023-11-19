@@ -50,6 +50,10 @@
 				:content="contentStore.components['206']"
 				:notMoreInfo="false"
 				:key="`story-206`" />
+			<ComponentContainer
+				:content="contentStore.components['207']"
+				:notMoreInfo="false"
+				:key="`story-207`" />
 		</section>
 	</div>
 </template>

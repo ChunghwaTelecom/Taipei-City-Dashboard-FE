@@ -2,6 +2,7 @@
 import { defineProps, onMounted, onUpdated } from "vue";
 
 const props = defineProps(["chart_config", "activeChart", "series"]);
+const svgId = "bubbleChart" + Math.random().toString(36).substr(2, 9);
 
 function isOverlapping(newBubble, bubbles) {
 	for (let bubble of bubbles) {
@@ -53,8 +54,8 @@ function drawBubble(bubble, svg) {
 }
 
 function createBubbleChart() {
-	if (document.getElementById("bubbleChart")) {
-		let svg = document.getElementById("bubbleChart");
+	if (document.getElementById(svgId)) {
+		let svg = document.getElementById(svgId);
 
 		let bubbles = [];
 		let maxAttempts = 100;
@@ -90,7 +91,7 @@ onUpdated(() => {
 <template>
 	<div v-if="activeChart === 'BubbleChart'">
 		<div>
-			<svg id="bubbleChart" width="400" height="240"></svg>
+			<svg :id="svgId" width="400" height="240"></svg>
 		</div>
 	</div>
 </template>
