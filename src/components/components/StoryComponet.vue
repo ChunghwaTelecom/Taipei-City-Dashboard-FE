@@ -39,7 +39,8 @@
 			<ComponentContainer
 				:content="contentStore.components['204']"
 				:notMoreInfo="false"
-				:key="`story-204`" />
+				:key="`story-204`"
+				class="wide" />
 		</section>
 
 		<section>
@@ -135,6 +136,10 @@ const contentStore = useContentStore();
 		box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 		margin: 3px;
 		border-radius: 8px;
+	
+		&.wide {
+			max-width: 660px;
+		}
 	}
 }
 </style>
