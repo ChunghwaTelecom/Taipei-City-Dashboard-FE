@@ -1,6 +1,6 @@
 <template>
 	<div
-		style="width: 100vmax; height: 100vmax;"
+		style="width: 100vmax;"
 		:class="{
 			storycontainer: true,
 		}">
@@ -10,7 +10,7 @@
 
 		<section>
 			<h2>準爸媽：月子中心價格、預約方式</h2>
-			<p>了解月子中心的價格和預約方式，為即將成為父母的您提供相關資訊。</p>
+			<h3>了解月子中心的價格和預約方式，為即將成為父母的您提供相關資訊。</h3>
 			<ComponentContainer
 				:content="contentStore.components['205']"
 				:notMoreInfo="false"
@@ -19,24 +19,28 @@
 
 		<section>
 			<h2>嬰兒40天、滿周歲：公私立托嬰(保母)</h2>
-			<p>探索公私立托嬰機構和保母的選擇，為您的寶寶提供適當的照顧和教育。</p>
+			<h3>探索公私立托嬰機構和保母的選擇，為您的寶寶提供適當的照顧和教育。</h3>
+			<ComponentContainer
+				:content="contentStore.components['203']"
+				:notMoreInfo="false"
+				:key="`story-203`" />
 			<ComponentContainer
 				:content="contentStore.components['202']"
 				:notMoreInfo="false"
 				:key="`story-202`" />
 			<ComponentContainer
-				:content="contentStore.components['203']"
+				:content="contentStore.components['204']"
 				:notMoreInfo="false"
-				:key="`story-203`" />
+				:key="`story-204`" />
 		</section>
 
 		<section>
 			<h2>小朋友就學：遷戶口、公私立幼稚園評價(& 價格)</h2>
-			<p>了解遷戶口的相關事項以及公私立幼稚園的評價和價格，為您的孩子提供良好的教育環境。</p>
+			<h3>了解遷戶口的相關事項以及公私立幼稚園的評價和價格，為您的孩子提供良好的教育環境。</h3>
 			<ComponentContainer
-				:content="contentStore.components['204']"
+				:content="contentStore.components['206']"
 				:notMoreInfo="false"
-				:key="`story-204`" />
+				:key="`story-206`" />
 		</section>
 	</div>
 </template>
@@ -53,7 +57,6 @@ const contentStore = useContentStore();
 
 <style scoped lang="scss">
 .storycontainer {
-	width: 100%;
 
 	background-color: pink;
 
@@ -63,17 +66,24 @@ const contentStore = useContentStore();
 	}
 
 	h2 {
-		font-size: 2rem;
+		font-size: 3rem;
 		padding: 10px;
 		background-color: palevioletred;
+	}
+
+	h3 {
+		font-size: 1.5rem;
+		padding: 20px;
+		background-color: palevioletred;
+		opacity: 60%;
 	}
 
 	.componentcontainer {
 		display: inline-block;
 		max-width: 440px;
 		max-height: 320px;
-		box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-		margin: 8px;
+		box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+		margin: 3px;
 		border-radius: 8px;
 	}
 }
