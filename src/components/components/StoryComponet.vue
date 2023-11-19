@@ -1,5 +1,6 @@
 <template>
 	<div
+		style="width: 100vmax; height: 100vmax;"
 		:class="{
 			storycontainer: true,
 		}">
@@ -61,6 +62,6 @@ const contentStore = useContentStore();
 
 <style scoped lang="scss">
 .storycontainer {
-
+	width: 100%;
 }
 </style>
