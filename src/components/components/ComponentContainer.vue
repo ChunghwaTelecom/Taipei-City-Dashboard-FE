@@ -78,6 +78,7 @@ function isStoryMode(content) {
 			componentcontainer: true,
 			moreinfostyle: !notMoreInfo,
 			maplayer: isMapLayer,
+			storymode: isStoryMode(content),
 		}"
 	>
 		<div class="componentcontainer-header">
@@ -443,6 +444,11 @@ function isStoryMode(content) {
 		height: 520px;
 		max-height: 520px;
 	}
+
+	&.storymode {
+	min-height: 80vh!important;
+}
+
 }
 
 .maplayer {

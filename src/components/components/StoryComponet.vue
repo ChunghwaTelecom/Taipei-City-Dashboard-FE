@@ -1,6 +1,6 @@
 <template>
 	<div
-		style="width: 100vmax;"
+		style="width: 90vmax;"
 		:class="{
 			storycontainer: true,
 		}">
