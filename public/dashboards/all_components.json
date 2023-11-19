@@ -4145,7 +4145,8 @@
 				{
 					"index": "InfantDaycareCenter",
 					"paint": {
-						"circle-color": "#A25FAD"
+						"circle-color": "#A25FAD",
+						"circle-radius": 6
 					},
 					"property": [
 						{
